@@ -21,8 +21,8 @@ def abs_to_str(abstract_file) :
     abstract = open(abstract_file, 'r')
     abstract = abstract.readlines()
     abstract = pd.DataFrame(abstract, columns=['InvInd'])
-    abstract['PID'] = [e.split('----')[0] for e in abstract['InvInd']]
-    abstract['InvInd'] = [e.split('----')[1] for e in abstract['InvInd']]
+    abstract['PID'] = [e.split('----', maxsplit = 1)[0] for e in abstract['InvInd']]
+    abstract['InvInd'] = [e.split('----', maxsplit = 1)[1] for e in abstract['InvInd']]
 
     new_abstracts = abstract.copy()
 
