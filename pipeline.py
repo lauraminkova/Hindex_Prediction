@@ -10,13 +10,15 @@ from sklearn.metrics import mean_squared_error
 
 random.seed(123)
 
-def full_pipeline(graph_data, text_data, training, test, classifier) :
+def full_pipeline(graph_data, abs_data, paper_data, ls_features, training, test, classifier) :
     '''
     graph_data:     (str) path to graph data
-    text_data:      (str) path to abstract data
+    abs_data:       (str) path to abstract data
+    paper_data:     (str) path to author-paper data
+    ls_features:    (list) list of strings that represent the features to use in this pipeline
     training:       (str) path to training.csv
     test:           (str) path to test.csv
-    classifier:     (str) Can be one of "LG", "SVM", "RBF", ... (will add more)
+    classifier:     (str) Can be one of "LG", "SVM", "RBF", MLP, ... (will add more)
     '''
 
     # ----------------- ROUGH DRAFT -----------------
@@ -34,4 +36,3 @@ def full_pipeline(graph_data, text_data, training, test, classifier) :
     # ------ Saving conventions: [DATE]-[CLASSIFIER]-[PARAMS]-submission.csv
 
     # ** optional ** return model
-
