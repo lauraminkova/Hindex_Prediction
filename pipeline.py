@@ -35,4 +35,4 @@ def full_pipeline(graph_data, abs_data, paper_data, ls_features, training, test,
     # 4. predict h-index for test, and store predicts as csv under predictions. 
     # ------ Saving conventions: [DATE]-[CLASSIFIER]-[PARAMS]-submission.csv
 
-    # ** optional ** return model
+    # 5. save model (using pickle)
