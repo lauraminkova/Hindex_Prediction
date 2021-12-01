@@ -5,9 +5,6 @@
 import numpy as np
 import pandas as pd
 import os
-# for text_clustering1
-from text_clustering.vectorizer import cluster_paragraphs
-from random import shuffle
 
 def number_papers(ls_authors, authors_paper) :
     '''
@@ -43,31 +40,7 @@ def total_sum_abs_words(ls_authors, authors_paper, abstracts) :
     return ls_length
 
 
-# --------------------- NOVEMBER 30th 11:39 pm update: NOT WORKING ---------------------
-
-def text_clustering1(abstracts, num_clusters) :
-    '''
-    abstracts:      (DataFrame) dataframe with paperIDs and their inverted index
-    num_clusters:   (int)  Number of clusters interested in
-    '''
-
-    ls_clusters = [0] * abstracts.shape[0]
-    
-    # list of all the string abstracts
-    ls_strs = list(abstracts.InvertedIndex)
-    clusters = cluster_paragraphs(ls_strs, num_clusters)
-    print(clusters)
-
-    # for i in range(len(clusters)) :
-    #     clust_i = clusters[i]
-    #     print(f'----------- CLUSTER {i} -----------')
-    #     for j in range(len(clust_i)) :
-    #         print(j)
-    #     " ------------------------------------------- "
-
-
-
-TEXT_FEATURES = {'numpapers': number_papers, 'tot_abs_len': total_sum_abs_words, 'txt_clust1' : text_clustering1}
+TEXT_FEATURES = {'numpapers': number_papers, 'tot_abs_len': total_sum_abs_words}
 
 
 if __name__ == '__main__' :
