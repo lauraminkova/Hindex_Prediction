@@ -44,3 +44,4 @@ TEXT_FEATURES = {'numpapers': number_papers, 'tot_abs_len': total_sum_abs_words}
 
 
 if __name__ == '__main__' :
+    print("hi")

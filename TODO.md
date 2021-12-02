@@ -4,3 +4,4 @@ To do:
 * ~~have one script for complete pipeline~~
 * handle the unbalanced-ness of the data
 * graph loss while training
+* Use statistical approaches to verify that our features are important (p test)
