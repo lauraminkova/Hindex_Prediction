@@ -48,8 +48,7 @@ def get_scibert_vectors(ls_authors, authors_paper, abstracts) :
     ls_authors:     (Serie-like) list of the authorIDs of interest
     authors_paper:  (DataFrame) dataframe with authorIDs and their corresponding paperIDs
     abstracts:      (DataFrame) dataframe with paperIDs and their string abstracts (modified abstracts.txt)
-    '''
-  
+    '''  
     # Loading SciBERT
     tokenizer = AutoTokenizer.from_pretrained("allenai/scibert_scivocab_uncased")
     model = AutoModel.from_pretrained("allenai/scibert_scivocab_uncased")
@@ -57,7 +56,7 @@ def get_scibert_vectors(ls_authors, authors_paper, abstracts) :
     # Loading stop words
     stop_words = set(stopwords.words("english"))
 
-    ls_vectors = [0] * ls_authors.shape[0]
+    ls_vectors = []
 
     for a in range(ls_authors.shape[0]) :
 
@@ -82,7 +81,7 @@ def get_scibert_vectors(ls_authors, authors_paper, abstracts) :
         outputs = model(**inputs)
         tens = outputs.pooler_output.detach().numpy()
         tens = tens.reshape(tens.shape[1])
-        ls_vectors[a - min(ls_authors.index)] = tens
+        ls_vectors.append(tens)
     
     return ls_vectors
 
@@ -91,7 +90,8 @@ import pickle
 
 if __name__ == "__main__" :
 
-    # text data
+
+    # Load your data:
     new_abs = pd.read_parquet('data/new_abstracts.parquet')
 
     author_papers = open("data/author_papers.txt", "r")
@@ -103,11 +103,12 @@ if __name__ == "__main__" :
     author_papers.index = author_papers['author']
     author_papers.drop(columns = ['Col', 'Papers', 'author'], axis = 1, inplace = True)
 
+    # Load test or training data
     training = pd.read_csv('data/train.csv', dtype={'author': np.int64, 'hindex': np.float32})
-    X_train_10 = training[:10]
+    # Optionally divide test/training data to parallelize the task (for much much quicker results... we split them up into 6)
+    X_train_sub = training[145202:]
 
-    ls_vectors = get_scibert_vectors(training[:10], author_papers, new_abs)
-    X_train_10['vec'] = ls_vectors
-
-    with open("wrd_test4.pkl", "wb") as g :
+    # For SciBERT vectors
+    ls_vectors = get_scibert_vectors(X_train_sub, author_papers, new_abs)
+    with open("bert_training_6.pkl", "wb") as g :
         pickle.dump(ls_vectors, g)
