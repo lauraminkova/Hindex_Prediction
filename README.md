@@ -7,7 +7,7 @@ Rough steps so far:
     * function `get_abstract_tbl` from  helpers/df_helpers.py: converted abstracts.txt into a human-friendly dataframe (doesn't take too long)
     * function `abs_to_str` from helpers/inv_ind_to_txt.py: converted inverted indices to strings **(this can take several hours...)**
 2. *Prepping features* 
-<br />
+
     All features were pre-computed and saved locally to avoid constant re-computing. For the features that required splitting up of the data for faster computation, the not-so-pretty scripts of piecing them back together can be found in the exploration folder. 
     
  * Graph Features (all scripts can be found at features/graph_features.py)
