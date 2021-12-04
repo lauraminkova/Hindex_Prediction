@@ -26,9 +26,10 @@ Rough steps so far:
     * function `get_scibert_vectors`: concatenate the string versions of every abstract an author has, and feed that into the pre-trained scibert model to get vectors of length 798 for every author **(can take a very very long time... recommend to split up authors in several groups)**. Downloaded SciBERT from: https://github.com/allenai/scibert, although you don't really need to if you use HuggingFace Pytorch models.
 
 3. *Pipeline*
-<br /> 
+
 Full pipeline, from prepping data and features to fitting a model can be found in pipeline.py.
-    * Scaling / Normalizing
-        * For the moment we're currently using scikit-learn's
-    * Classifiers (can be found under classifiers/classify.py)
+
+* Scaling / Normalizing
+    * For the moment we're currently using scikit-learn's
+* Classifiers (can be found under classifiers/classify.py)
     
