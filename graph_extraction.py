@@ -31,8 +31,11 @@ degree_centrality = nx.degree_centrality(G)
 clustering = nx.clustering(G)
 triangle = nx.triangles(G)
 
+#PageRank
+pagerank = nx.pagerank(G, alpha=0.85, personalization=None, max_iter=100, tol=1e-06, nstart=None, weight='weight', dangling=None)
+
 ############ Features to X_train ################
-X_train1 = np.zeros((n_train, 6))
+X_train1 = np.zeros((n_train, 7))
 y_train1 = np.zeros(n_train)
 X_train1save = X_train1
 
@@ -43,21 +46,13 @@ for i,row in df_train.iterrows():
     X_train1[i,2] = eigen_centrality[node]
     X_train1[i,3] = degree_centrality[node] 
     X_train1[i,4] = clustering[node] 
-    X_train1[i,5] = triangle[node] 
+    X_train1[i,5] = triangle[node]
+    X_train1[i,6] = pagerank[node]
     y_train1[i] = row['hindex']
 
-######### Transformation of the centrality measures into quartile #############
-first = np.percentile(X_train1[i,2],25)
-second = np.percentile(X_train1[i,2],50)
-third = np.percentile(X_train1[i,2],75)
-
-condlist = [X_train1[:,2]<first, ((X_train1[:,2]>first) & (X_train1[:,2]< second)), ((X_train1[:,2]>second) & (X_train1[:,2]<third)), X_train1[:,2]>third]
-choicelist = [0,1,2,3]
-X_train1[:,2] = np.select(condlist,choicelist)
-
-first = np.percentile(X_train1[i,3],25)
-second = np.percentile(X_train1[i,3],50)
-third = np.percentile(X_train1[i,3],75)
+scaler = PowerTransformer()
+# transform data
+X_train1 = scaler.fit_transform(X_train1)
 
 condlist = [X_train1[:,3]<first, ((X_train1[:,3]>first) & (X_train1[:,3]< second)), ((X_train1[:,3]>second) & (X_train1[:,3]<third)), X_train1[:,3]>third]
 choicelist = [0,1,2,3]
