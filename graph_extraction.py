@@ -55,6 +55,3 @@ scaler = PowerTransformer()
 # transform data
 X_train1 = scaler.fit_transform(X_train1)
 
-condlist = [X_train1[:,3]<first, ((X_train1[:,3]>first) & (X_train1[:,3]< second)), ((X_train1[:,3]>second) & (X_train1[:,3]<third)), X_train1[:,3]>third]
-choicelist = [0,1,2,3]
-X_train1[:,3] = np.select(condlist,choicelist)
