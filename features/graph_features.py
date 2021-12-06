@@ -26,6 +26,9 @@ def all_networkx_feats(edgelist) :
     clustering = nx.clustering(G)
     triangle = nx.triangles(G)
 
+    # page rank
+    pagerank = nx.pagerank(G, alpha=0.85, personalization=None, max_iter=100, tol=1e-06, nstart=None, weight='weight', dangling=None)
+
     with open("core_number.pkl", "wb") as f :
         pickle.dump(core_number, f)
 
@@ -43,3 +46,6 @@ def all_networkx_feats(edgelist) :
 
     with open("triangle.pkl", "wb") as f :
         pickle.dump(triangle, f)
+
+    with open("pagerank.pkl", "wb") as f :
+        pickle.dump(pagerank, f)
