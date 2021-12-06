@@ -1,5 +1,7 @@
 # INF554-Final-Project
 
+We used Python 3.9.7.
+
 Rough steps so far:
 
 1. *Prepping data*
@@ -30,6 +32,6 @@ Rough steps so far:
     Full pipeline, from prepping data and features to fitting a model can be found in pipeline.py.
 
     * Scaling / Normalizing
-        * For the moment we're currently using scikit-learn's
+        * For the moment we're currently using scikit-learn's robust scaler
     * Classifiers (can be found under classifiers/classify.py)
     
