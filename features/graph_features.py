@@ -49,3 +49,26 @@ def all_networkx_feats(edgelist) :
 
     with open("pagerank.pkl", "wb") as f :
         pickle.dump(pagerank, f)
+        
+        
+def graph_clustering() :
+    #Loading the file with embeding and author
+    embeding_with_author = pd.read_csv('../data/node2vec.csv',sep=' ', header=None,)
+    embeding_with_author = pd.DataFrame(embeding_with_author)
+    embeding_with_author.rename(columns={0: 'author'}, inplace=True)
+
+    #Separation of the author values and the embeding values
+    embeding = embeding_with_author.iloc[:, 1:5]
+    author = embeding_with_author.iloc[:, 0]
+
+    #clustering
+    clustering = DBSCAN(eps=1, min_samples=10).fit(embeding)
+    cluster = clustering.labels_
+
+    #getting an exploitable file
+    author_with_cluster = pd.DataFrame(data = cluster, columns = ['Cluster'])
+    author_with_cluster['author'] = author
+
+    author_with_cluster.to_parquet('graph_clustering.parquet')
+
+    return author_with_cluster
