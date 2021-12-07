@@ -4,10 +4,10 @@
 import pickle
 import os
 import pandas as pd
+import numpy as np
 import networkx as nx
 from sklearn.cluster import DBSCAN
-
-os.chdir("/home/laura/INF554-Final-Project")
+from node2vec import Node2Vec
 
 # *********************************** #
 #            RUN ONLY ONCE            #   
@@ -76,15 +76,18 @@ def graph_clustering(embedding_with_author) :
     author_with_cluster.to_parquet('graph_clustering.parquet')
 
     return author_with_cluster
+    
 
+def node2vec_emb(G, dimensions=5, walk_length=3, num_walks=50, workers=1)
 
+    # Precompute probabilities and generate walks - 
+    node2vec = Node2Vec(G, dimensions=5, walk_length=3, num_walks=50, workers=1)  
 
-embeding_with_author = pd.read_csv('data/node2vec.csv',sep=' ', header=None,)
-embeding_with_author = pd.DataFrame(embeding_with_author)
-embeding_with_author.rename(columns={0: 'author'}, inplace=True)
+    # Embed nodes
+    model = node2vec.fit(window=10, min_count=1, batch_words=4)
 
-embeding_with_author_mini =embeding_with_author.iloc[:5, :]
-print(embeding_with_author_mini)
+    # Save embeddings
+    model.wv.save_word2vec_format('node2vec.csv')
 
-graph_clustering(embeding_with_author_mini)
-
+    # Save model for later use
+    model.save('model')
