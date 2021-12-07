@@ -69,6 +69,6 @@ def graph_clustering() :
     author_with_cluster = pd.DataFrame(data = cluster, columns = ['Cluster'])
     author_with_cluster['author'] = author
 
-    author_with_cluster.to_parquet('graph_clustering.parquet')
+    author_with_cluster.to_parquet('../data/graph_clustering.parquet')
 
     return author_with_cluster
