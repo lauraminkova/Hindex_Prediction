@@ -7,8 +7,6 @@ import pandas as pd
 import networkx as nx
 from sklearn.cluster import DBSCAN
 
-os.chdir("/home/laura/INF554-Final-Project")
-
 # *********************************** #
 #            RUN ONLY ONCE            #   
 # *********************************** #
