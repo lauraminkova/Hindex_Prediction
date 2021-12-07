@@ -7,6 +7,8 @@ import pandas as pd
 import networkx as nx
 from sklearn.cluster import DBSCAN
 
+os.chdir("/home/laura/INF554-Final-Project")
+
 # *********************************** #
 #            RUN ONLY ONCE            #   
 # *********************************** #
@@ -75,14 +77,14 @@ def graph_clustering(embedding_with_author) :
 
     return author_with_cluster
 
-if __name__ == "__main__" :
 
-    embeding_with_author = pd.read_csv('data/node2vec.csv',sep=' ', header=None,)
-    embeding_with_author = pd.DataFrame(embeding_with_author)
-    embeding_with_author.rename(columns={0: 'author'}, inplace=True)
 
-    embeding_with_author_mini =embeding_with_author.iloc[:5, :]
-    print(embeding_with_author_mini)
+embeding_with_author = pd.read_csv('data/node2vec.csv',sep=' ', header=None,)
+embeding_with_author = pd.DataFrame(embeding_with_author)
+embeding_with_author.rename(columns={0: 'author'}, inplace=True)
 
-    graph_clustering(embeding_with_author_mini)
+embeding_with_author_mini =embeding_with_author.iloc[:5, :]
+print(embeding_with_author_mini)
+
+graph_clustering(embeding_with_author_mini)
 
