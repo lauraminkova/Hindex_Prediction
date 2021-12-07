@@ -88,27 +88,6 @@ def get_scibert_vectors(ls_authors, authors_paper, abstracts) :
     
     return ls_vectors
 
-def clarans_bert(df_data) :
-    # Code adapted from: 
-    # https://medium.com/analytics-vidhya/partitional-clustering-using-clarans-method-with-python-example-545dd84e58b4 
-    '''
-    df_data:    (DataFrame) training or test data with bert vectors only 
-    '''
-
-    data = df_data.to_numpy()
-    data = data.tolist()
-
-    clarans_instance = clarans(data, 100, 6, 4)
-
-    #returns the clusters 
-    clusters = clarans_instance.get_clusters()
-
-    #returns the mediods 
-    medoids = clarans_instance.get_medoids()
-    
-    return clusters, medoids
-
-
 import pickle 
 
 if __name__ == "__main__" :
