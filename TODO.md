@@ -8,3 +8,4 @@ equally inbalanced
 * graph loss while training
 * Use statistical approaches to verify that our features are important (p test)
 * use Chi-Sq from assessment on data given to improve predictions?
+* Add DBSCAN to features folder

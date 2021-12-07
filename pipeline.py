@@ -17,6 +17,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVR
+from sklearn.feature_selection import chi2
 
 os.chdir("/home/laura/Documents/Polytechnique/MScT - M1/INF554 Machine Learning/Kaggle Data Challenge/INF554-Final-Project")
 
