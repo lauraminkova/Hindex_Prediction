@@ -30,6 +30,7 @@ dependencies:
   - cffi=1.15.0=py39h4bc2ebd_0
   - charset-normalizer=2.0.8=pyhd8ed1ab_0
   - click=8.0.3=py39hf3d152e_1
+  - cloudpickle=2.0.0=pyhd8ed1ab_0
   - colorama=0.4.4=pyh9f0ad1d_0
   - cramjam=2.3.1=py39h3811e60_1
   - cryptography=36.0.0=py39h95dcef6_0
@@ -48,6 +49,7 @@ dependencies:
   - fontconfig=2.13.1=hba837de_1005
   - freetype=2.10.4=h0708190_1
   - fsspec=2021.11.1=pyhd8ed1ab_0
+  - future=0.18.2=py39hf3d152e_4
   - gensim=4.1.2=py39he80948d_0
   - gettext=0.19.8.1=h73d1719_1008
   - gflags=2.2.2=he1b5a44_1004
@@ -58,6 +60,7 @@ dependencies:
   - gst-plugins-base=1.14.0=hbbd80ab_1
   - gstreamer=1.14.0=h28cd5cc_2
   - huggingface_hub=0.2.1=pyhd8ed1ab_0
+  - hyperopt=0.2.5=pyh9f0ad1d_0
   - icu=58.2=hf484d3e_1000
   - idna=3.1=pyhd3deb0d_0
   - importlib-metadata=4.8.2=py39hf3d152e_0
@@ -129,6 +132,7 @@ dependencies:
   - nest-asyncio=1.5.1=pyhd8ed1ab_0
   - networkx=2.6.3=pyhd8ed1ab_0
   - nltk=3.6.5=pyhd8ed1ab_0
+  - node2vec=0.3.0=pyh9f0ad1d_0
   - nspr=4.30=h9c3ff4c_0
   - nss=3.69=hb5efdd6_1
   - numpy=1.21.2=py39hdbf815f_0
@@ -139,6 +143,7 @@ dependencies:
   - packaging=21.3=pyhd8ed1ab_0
   - pandas=1.3.4=py39hde0f152_0
   - parso=0.8.2=pyhd8ed1ab_0
+  - patsy=0.5.2=pyhd8ed1ab_0
   - pcre=8.45=h9c3ff4c_0
   - pexpect=4.8.0=pyh9f0ad1d_2
   - pickleshare=0.7.5=py_1003
@@ -148,8 +153,10 @@ dependencies:
   - pthread-stubs=0.4=h36c2ea0_1001
   - ptyprocess=0.7.0=pyhd3deb0d_0
   - pyarrow=3.0.0=py39he0739d4_3
+  - pyclustering=0.10.1.2=py39h1a9c180_1
   - pycparser=2.21=pyhd8ed1ab_0
   - pygments=2.10.0=pyhd8ed1ab_0
+  - pymongo=4.0=py39he80948d_0
   - pyopenssl=21.0.0=pyhd8ed1ab_0
   - pyparsing=2.4.7=pyh9f0ad1d_0
   - pyqt=5.9.2=py39h2531618_6
@@ -170,12 +177,15 @@ dependencies:
   - requests=2.26.0=pyhd8ed1ab_1
   - sacremoses=0.0.46=pyhd8ed1ab_0
   - scipy=1.7.1=py39hee8e79c_0
+  - seaborn=0.11.2=hd8ed1ab_0
+  - seaborn-base=0.11.2=pyhd8ed1ab_0
   - setuptools=58.2.0=py39hf3d152e_0
   - sip=4.19.13=py39h2531618_0
   - six=1.16.0=pyh6c4a22f_0
   - smart_open=5.2.1=pyhd8ed1ab_0
   - snappy=1.1.8=he1b5a44_3
   - sqlite=3.36.0=h9cd32fc_2
+  - statsmodels=0.13.1=py39hce5d2b2_0
   - thrift=0.15.0=py39he80948d_1
   - tk=8.6.11=h27826a3_1
   - tokenizers=0.10.3=py39hd6d55de_1
