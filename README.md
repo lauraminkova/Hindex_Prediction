@@ -13,15 +13,15 @@ Rough steps so far:
     All features were pre-computed and saved locally to avoid constant re-computing. For the features that required splitting up of the data for faster computation, the not-so-pretty scripts of piecing them back together can be found in the exploration folder. 
     
     * Graph Features (all scripts can be found at features/graph_features.py)
-        * Degree
-        * Core-number
-        * Average neighbour degree
-        * Eigen centrality
-        * Degree centrality
-        * Clustering
-        * Triangle
-        * **Betweenness centrality** : IF IT EVER FINISHES RUNNING 
-        * **Closeness centrality** : IF IT EVER FINISHES RUNNING
+        * Degree :  it  represents  the  number  ofconnections of each nodes.
+        * Core-number : Returns the core numberfor each vertex of rank k which is the maximalnumber  of  subgraph  that  contains  nodes  ofdegree k or more.
+        * Eigen centrality : this  measure  emphasizesconnection  to  important  nodes  (which  them-selves have many connections) over connectionto isolated (or less connected) nodes
+        * Degree centrality : the degree centrality repre-sents the number of connections of each nodewith respect to the total number of nodes.
+        * Clustering :  it represent the fraction of possible  triangles  through  that  node  that  existwith respect to the degree of the node.
+        * Triangle :  The  Triangle  score  countsthe  number  of  triangles  for  each  node  in  thegraph. A triangle is a set of three nodes whereeach node has a relationship to the other two
+        * Node2Vec : node embedding of the graph to a 5 dimensional space using the Node2Vec framework. 
+        * ProNE : node embedding of the graph to a 32 dimensional space using the ProNe framework. 
+        * DBSCAN : Non linear clustering method used to find 2 cluster in the Node2Vec embedding
     * Text Features (all scripts can be found at features/text_features.py)
         * function `number_papers`: calculates the number of major papers an author has published (does not take too long)
         * function `total_sum_abs_words`: calculates the total sum of words in an author's major papers' abstracts (takes a while... couple of hours)
