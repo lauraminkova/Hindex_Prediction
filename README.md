@@ -37,7 +37,7 @@ For our Kaggle results we used MLPRegressor and we use its best parameters which
         * Clustering :  it represent the fraction of possible  triangles  through  that  node  that  existwith respect to the degree of the node.
         * Triangle :  The  Triangle  score  countsthe  number  of  triangles  for  each  node  in  thegraph. A triangle is a set of three nodes whereeach node has a relationship to the other two
         * function `node2vec_emb`: node embedding of the graph to a 5 dimensional space using the Node2Vec framework. 
-        * ProNE : node embedding of the graph to a 32 dimensional space using the ProNe framework. 
+        * function `prone_emb` : node embedding of the graph to a 32 dimensional space using the ProNe framework. 
         * function `graph_clustering` : Use DBSCAN, a non linear clustering method used to find 2 cluster in the Node2Vec embedding
     * Text Features (all scripts can be found at features/text_features.py)
         * function `number_papers`: calculates the number of major papers an author has published (does not take too long)
