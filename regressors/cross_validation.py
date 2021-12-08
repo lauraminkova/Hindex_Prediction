@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import random
+import pickle
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import Lasso, Ridge
 from sklearn.preprocessing import RobustScaler, Normalizer
@@ -13,7 +14,7 @@ random.seed(123)
 
 def cv(train, y_train, model, params_dict) :
     '''
-
+    train:      (DataFrame) 
     '''
     if model == MLPRegressor :
         norm = Normalizer().fit(train)
@@ -24,10 +25,8 @@ def cv(train, y_train, model, params_dict) :
     
     reg = model(**params_dict)
 
-    # reg = Ridge(alpha=0.1)
-    # reg = SVR(C=1.0, epsilon=0.2)
-    # reg = KNeighborsRegressor(n_neighbors=2)
     scores = cross_val_score(reg, train, y_train, cv=10, scoring='neg_mean_squared_error')
     
     print(f'ALL SCORES: {-1*scores}')
     print(np.mean(scores))
+
