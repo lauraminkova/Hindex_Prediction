@@ -149,12 +149,13 @@ if __name__ == "__main__" :
 
     s = datetime.now()
 
+    # Loading data
     train = pd.read_parquet('data/train-graph-text-bert-prone-node2vec-DBSCAN-071221.parquet')
     y_train = train['hindex']
     train.drop('hindex', axis=1, inplace=True)
 
     params = bayes_hopt('MLP-most-recent', train, y_train, 'MLP', normalize=False)
+    
     print(params)
-
     print(datetime.now() - s)
     

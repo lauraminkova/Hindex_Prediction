@@ -62,10 +62,23 @@ def full_pipeline(train, test, regressor, params, outfile) :
 
 
 ########### EXAMPLE RUN ###########
-# train = pd.read_parquet("final_train_df_whindex.parquet")
-# test = pd.read_parquet("final_test_df.parquet")
-# regressor = Lasso
-# params = {'alpha': 0.01}
-# outfile = "mysubmission.csv"
+###################################
 
-# full_pipeline(train, test, regressor, params, outfile)
+# Make sure these paths are correct before you run
+train = pd.read_parquet("final_train_df_whindex.parquet")
+test = pd.read_parquet("final_test_df.parquet")
+
+# Change this to whatever regressor your want
+regressor = MLPRegressor
+params = {'activation': 'logistic',
+        'alpha': 0.001,
+        'early_stopping': True,
+        'hidden_layer_sizes': 500,
+        'learning_rate': 'invscaling',
+        'learning_rate_init': 0.0001,
+        'verbose': True}
+
+# Change for what ever path you want
+outfile = "mysubmission.csv"
+
+full_pipeline(train, test, regressor, params, outfile)
