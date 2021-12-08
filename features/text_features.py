@@ -89,28 +89,3 @@ def get_scibert_vectors(ls_authors, authors_paper, abstracts) :
     return ls_vectors
 
 import pickle 
-
-if __name__ == "__main__" :
-
-
-    # Load your data:
-    new_abs = pd.read_parquet('data/new_abstracts.parquet')
-
-    author_papers = open("data/author_papers.txt", "r")
-    author_papers = author_papers.readlines()
-    author_papers = pd.DataFrame(author_papers,columns=['Col'])
-    author_papers[['author','Papers']] = author_papers['Col'].str.split(':',expand=True)
-    author_papers[['P1','P2','P3','P4','P5']] = author_papers['Papers'].str.split('-',expand=True)
-    author_papers = author_papers.replace({'\n':''}, regex=True)
-    author_papers.index = author_papers['author']
-    author_papers.drop(columns = ['Col', 'Papers', 'author'], axis = 1, inplace = True)
-
-    # Load test or training data
-    training = pd.read_csv('data/train.csv', dtype={'author': np.int64, 'hindex': np.float32})
-    # Optionally divide test/training data to parallelize the task (for much much quicker results... we split them up into 6)
-    X_train_sub = training[145202:]
-
-    # For SciBERT vectors
-    ls_vectors = get_scibert_vectors(X_train_sub, author_papers, new_abs)
-    with open("bert_training_6.pkl", "wb") as g :
-        pickle.dump(ls_vectors, g)
