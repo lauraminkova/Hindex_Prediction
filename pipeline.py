@@ -35,7 +35,7 @@ def full_pipeline(train, test, regressor, params, outfile) :
 
     # Will 10-fold cross validation to ensure that your model is not overfitting
     # Will print the scores and average score for this model
-    # cv(train, y_train, regressor, params)
+    cv(train, y_train, regressor, params)
 
     if regressor == MLPRegressor :
         norm = Normalizer().fit(train)
