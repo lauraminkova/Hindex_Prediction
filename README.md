@@ -21,7 +21,7 @@ Rough steps so far:
         * Triangle :  The  Triangle  score  countsthe  number  of  triangles  for  each  node  in  thegraph. A triangle is a set of three nodes whereeach node has a relationship to the other two
         * Node2Vec : node embedding of the graph to a 5 dimensional space using the Node2Vec framework. 
         * ProNE : node embedding of the graph to a 32 dimensional space using the ProNe framework. 
-        * function 'graph_clustering' : Use DBSCAN, a non linear clustering method used to find 2 cluster in the Node2Vec embedding
+        * function `graph_clustering` : Use DBSCAN, a non linear clustering method used to find 2 cluster in the Node2Vec embedding
     * Text Features (all scripts can be found at features/text_features.py)
         * function `number_papers`: calculates the number of major papers an author has published (does not take too long)
         * function `total_sum_abs_words`: calculates the total sum of words in an author's major papers' abstracts (takes a while... couple of hours)
