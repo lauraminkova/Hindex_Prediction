@@ -10,8 +10,6 @@ import random
 # import ast
 from datetime import datetime
 
-os.chdir("/home/laura/INF554-Final-Project")
-
 from hyperopt import tpe, fmin, Trials, STATUS_OK, hp
 from hyperopt.early_stop import no_progress_loss
 from hyperopt.pyll import scope
