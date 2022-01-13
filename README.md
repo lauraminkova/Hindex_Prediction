@@ -6,7 +6,7 @@ If you would like to test out our model, feel free to check out the "Running our
 
 In order to test our model, follow the following steps:
 1.  Create a conda virtual environment from our "our_env.yml" file. This will install all the necessary packages for the full project. Run `conda env create -f our_env.yml`.
-2. Download the prepared training and test dataframes, as well as the submission template from the zip folder we provided in our project submission. 
+2. Download the prepared training and test dataframes, as well as the submission template from the zip folder we provided in our project submission. WeLink: https://we.tl/t-aAiXrtjWks 
 3. Choose which sklearn regressor you'd like to use. We've already imported LogisticRegression, Lasso, Ridge, SVR, MLP, RandomForestRegressor, but feel free to import one of your own!
 For our Kaggle results we used MLPRegressor and we use its best parameters which were calculated through our Bayesian hyperparameter tuning script. The parameters were:
 `{'activation': 'logistic',
@@ -32,10 +32,10 @@ For our Kaggle results we used MLPRegressor and we use its best parameters which
     * Graph Features (all scripts can be found at features/graph_features.py)
         * Degree :  it  represents  the  number  ofconnections of each nodes.
         * Core-number : Returns the core numberfor each vertex of rank k which is the maximalnumber  of  subgraph  that  contains  nodes  ofdegree k or more.
-        * Eigen centrality : this  measure  emphasizesconnection  to  important  nodes  (which  them-selves have many connections) over connectionto isolated (or less connected) nodes
-        * Degree centrality : the degree centrality repre-sents the number of connections of each nodewith respect to the total number of nodes.
-        * Clustering :  it represent the fraction of possible  triangles  through  that  node  that  existwith respect to the degree of the node.
-        * Triangle :  The  Triangle  score  countsthe  number  of  triangles  for  each  node  in  thegraph. A triangle is a set of three nodes whereeach node has a relationship to the other two
+        * Eigen centrality : this  measure  emphasizes connection  to  important  nodes  (which  themselves have many connections) over connection to isolated (or less connected) nodes
+        * Degree centrality : the degree centrality represents the number of connections of each node with respect to the total number of nodes.
+        * Clustering :  represents the fraction of possible  triangles  through  that  node  that  exist with respect to the degree of the node.
+        * Triangle :  The  Triangle  score  counts the  number  of  triangles  for  each  node  in  thegraph. A triangle is a set of three nodes whereeach node has a relationship to the other two
         * function `node2vec_emb`: node embedding of the graph to a 5 dimensional space using the Node2Vec framework. 
         * function `prone_emb` : node embedding of the graph to a 32 dimensional space using the ProNe framework. 
         * function `graph_clustering` : Use DBSCAN, a non linear clustering method used to find 2 cluster in the Node2Vec embedding
